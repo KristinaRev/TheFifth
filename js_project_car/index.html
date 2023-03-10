@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Список автомобилей</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <table id="carList">
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)">Марка</th>
+          <th onclick="sortTable(1)">Модель</th>
+          <th onclick="sortTable(2)">Цвет</th>
+          <th onclick="sortTable(3)">Количество</th>
+          <th onclick="sortTable(4)">Цена</th>
+          <th>
+            <form>
+                <input type="search" id="searchInput" onsubmit="searchCar(this.value)">
+                <button type="submit" onclick="searchCar('Toyota')">Искать</button>
+            </form>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <div id="pagination"></div>
+    <button onclick="openModal('add')">Добавить автомобиль</button>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <form id="carForm">
+          <input type="hidden" id="carIndex">
+          <div>
+            <label for="carBrand">Марка:</label>
+            <input type="text" id="carBrand" required>
+          </div>
+          <div>
+            <label for="carModel">Модель:</label>
+            <input type="text" id="carModel" required>
+          </div>
+          <div>
+            <label for="carColor">Цвет:</label>
+            <input type="text" id="carColor" required>
+          </div>
+          <div>
+            <label for="carQty">Количество:</label>
+            <input type="number" id="carQty" min="0" required>
+          </div>
+          <div>
+            <label for="carPrice">Цена:</label>
+            <input type="number" id="carPrice" min="0" required>
+          </div>
+          <button type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
